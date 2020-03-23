@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String.html</title>
+</head>
+<body>
+    <script>
+        var str = "Please locate where 'locate' occurs";
+        str.length;
+        var pos = str.indexOf('locate');
+        pos = str.lastIndexOf('locate');
+        console.log(pos);
+        //slice, substring, substr, toUpperCase, toLowerCase
+        console.log(str.slice(7));
+            //String 문자열에서 첫번째매개값~두번째매개값바로앞까지 잘라서 출력 첫번째값만존재, 끝까지다출력
+        console.log(str.substring(7,13));
+        console.log(str.substr(7,6).toUpperCase());
+        //substring은 7~12까지 출력, substr은 7부터 6개 출력       
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tableType.html</title>
+
+</head>
+<body>
+    
+    <button onclick="createTable()">CreateTable</button>
+    <div id = myTable ></div>
+    
+    <script>
+        function createTable(){
+            var friend1 ={
+                firstName : "gildong",
+                lastName : "Hong",
+                age : 16
+            }
+            
+            var friend2 ={
+                firstName : "sengwoo",
+                lastName : "Hong",
+                age : 26
+            }        
+            var friend3 ={
+                firstName : "junwon",
+                lastName : "Ha",
+                age : 36
+            }
+            var friends = [friend1, friend2, friend3];
+            var $mytable = "<table border=1>";
+            for(obj of friends){
+                $mytable +=  "<tr>";
+                for(f in obj){
+                    $mytable += "<td>"+obj[f]+"</td>"
+                }
+                $mytable +="</tr>";
+            }
+            $mytable += "</table>"
+            document.getElementById("myTable").innerHTML=$mytable;
+        }
+    </script>
+</body>
+</html>

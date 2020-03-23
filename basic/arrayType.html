@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrayType.html</title>
+</head>
+<body>
+    <p id = "show"></p>
+    <script>
+        
+        var friend1 ={
+            firstName : "gildong",
+            lastName : "Hong",
+            age : 16
+        }
+        
+        var friend2 ={
+            firstName : "sengwoo",
+            lastName : "Hong",
+            age : 26
+        }        
+        var friend3 ={
+            firstName : "junwon",
+            lastName : "Ha",
+            age : 36
+        }
+        var $tags = "<ul>";
+        var friends = [friend1, friend2, friend3];
+        for (obj of friends){   
+            //console.log(obj)
+            //console.log(obj.firstName+", "+obj.lastName+", "+obj.age);
+            //console.log(obj["firstName"]+", "+obj.lastName);
+            $tags += "<li>";
+            for(f in obj){
+                //console.log(obj[f])
+                $tags += f+": "+obj[f]+" ";
+            }
+            $tags += "</li>";
+        }
+        $tags +="</ul>";
+        document.getElementById("show").innerHTML=$tags;
+    </script>
+</body>
+</html>
