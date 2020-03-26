@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Eid:<input type="text" name="Eid" id="empId"><br>
+    Name:<input type="text" name="Name" id="name"><br>
+    Phone:<input type="text" name="Phone" id="phone"><br>
+        <button id="btn" onclick="addTr()">Add lnfo</button>
+    <table id="tbl">
+        <tr>
+            <th>empId</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Delete</th>
+        </tr>
+    </table>
+    <script>
+        var datas = [
+            {empId:101, name:"scott", phone:"1234"},
+            {empId:102, name:"sepmgwoo", phone:"3344"},
+            {empId:103, name:"junwon", phone:"4444"},
+            {empId:104, name:"jaeeon", phone:"3333"},
+            {empId:105, name:"kyurim", phone:"6666"}
+
+        ]
+        var tbl = document.getElementById("tbl");
+        var $tr, $td, $text;
+        var $title = ["empId","name","phone"];
+        datas.forEach(function(obj, ind){
+           $tr = document.createElement("tr");
+           $tr.setAttribute("id", obj.empId);
+          // $tr.addEventListener("click",clickFnc);
+           $tr.addEventListener("mouseover",mOoverFnc);
+           $tr.addEventListener("mouseout",mOutFnc);
+            for(field of $title){
+                $text = document.createTextNode(obj[field]);
+                $td = document.createElement("td");
+                $td.appendChild($text); //<td>101</td>
+                $tr.appendChild($td); //<tr><td>101</tr></td>
+            }
+            //button 태그생성. <td><button>Del</button></td>
+            $text = document.createTextNode("Del");
+            var $btn = document.createElement("button");
+            $btn.onclick = delFunc;
+            $btn.appendChild($text);
+            $td = document.createElement("td");
+            $td.appendChild($btn);
+            $tr.appendChild($td);
+
+            tbl.appendChild($tr);
+
+        });
+
+        function delFunc(){
+            console.log(this);
+            this.parentNode.parentNode.remove();
+        }
+        // function clickFnc(){
+        //      console.log(this.childNodes[0].childNodes[0].nodeValue)
+        //     var artMsg="id:"+this.childNodes[0].childNodes[0].nodeValue
+        //                 +"\name:"+this.childNodes[1].childNodes[0].nodeValue
+        //                 +"\nphone:"+this.childNodes[2].childNodes[0].nodeValue;
+        //                 alert(artMsg);
+        //}
+        function mOoverFnc(){
+            this.style.background="yellow";
+        }
+        function mOutFnc(){
+            this.style.background="";
+        }
+        //추가 작업
+     function addTr(){
+     var empId =  document.getElementById('empId').value;
+     var name =  document.getElementById('name').value;
+     var phone = document.getElementById('phone').value;
+     
+     var $tr, $td, $text;
+     $tr = document.createElement("tr"); // createElement는 "<tr></tr>"" 테그를 만들어서 값을 안에 넣는다
+     
+     $text = document.createTextNode(empId);
+     $td = document.createElement("td"); // createElement는 "<td></td>"" 테그를 만들어서 값을 안에 넣는다
+     $td.appendChild($text); //자식으로 추가할때 appendChid 사용
+     $tr.appendChild($td);
+     
+     $text = document.createTextNode(name);
+     $td = document.createElement("td");
+     $td.appendChild($text);
+     $tr.appendChild($td);
+
+    $text = document.createTextNode(콜);
+    $td = document.createElement("td");
+    $td.appendChild($text);
+    $tr.appendChild($td)
+    tbl.appendChild($tr);
+
+     $text = document.createTextNode("Del");
+            var $btn = document.createElement("button");
+            $btn.onclick = delFunc;
+            $btn.appendChild($text);
+            $td = document.createElement("td");
+            $td.appendChild($btn);
+            $tr.appendChild($td);
+
+            tbl.appendChild($tr);
+     document.getElementById('empId').value =""; //값을 한번 입력하고 다음 입력할수 있게 이전 입력값을 지워준다.
+     document.getElementById('name').value ="";
+     document.getElementById('phone').value ="";
+     
+     }
+
+    </script>
+</body>
+</html>

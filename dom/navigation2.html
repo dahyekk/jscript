@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <input type="text" name="firstName" id="firstName" value="gildong">
+        <input type="text" name="lastName" id="lastName" value="Hong">
+        <input type="text" name="age" id="age" value="16">
+        <button id="btn" onclick="translateBtn()">Click</button>
+
+        <table id="tbl" border="1">
+            <tbody>
+            <tr>
+                <td>FirstName</td>
+                <td>LastName</td>
+                <td>Age</td>
+            </tr>
+            <tr>
+                <td>gildong</td>
+                <td>Hong</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td>ara</td>
+                <td>shin</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>jaeeon</td>
+                <td>Yun</td>
+                <td>38</td>
+            </tr>
+            <tr>
+                <td>jiwon</td>
+                <td>lee</td>
+                <td>19</td>
+            </tr>
+        </tbody>
+        </table>
+        <script>
+            var tds = document.querySelectorAll("#tbl td")
+            console.log(tds);
+            tds.forEach(function(a,b){
+                //a.setAttribute('style', 'background:#eee');
+                a.onmouseover = function(){
+                    this.style.background = "skyblue";
+                }
+                a.onmouseout = function(){
+                    this.style.background = "";
+                }
+                a.onclick = function(){
+                    alert(this.innerHTML);
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            float: left;
+            border: 2px blue solid;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <button id="btn">Click</button>
+    <script>
+      var arys = [34,59,23,10,88];
+      arys.push(55); //위 배열 마지막에 55 추가
+      arys.unshift(44); //위 배열 맨 앞에 추가
+      var sum = 0;
+      for(var i=0; i<arys.length; i++){
+          if(arys[i] % 2==1)//홀수값만
+          sum += arys[i]; //sum = sum+arys[i]; 
+      }
+        console.log("sum의 값(for):"+sum);
+        //forEach 활용.
+        sum=0;
+        arys.forEach(function(a,b,c){
+          if(a % 2==1)//홀수 값만
+          sum += a;
+        });
+        console.log("sum의 값(forEach):"+sum);
+
+        var objects = [
+            {name :"Kim",age:25},
+            {name :"Park", age:37},
+            {name :"Choi", age:30},
+            {name :"Lee", age:29}
+        ]
+        for(var i=0; i<objects.length; i++){
+        for(fName in objects[0]){
+            console.log(objects[i][fName]);
+            }
+        }
+        objects.forEach(function(a,b,c){
+            for(fName in a){
+                console.log(a[fName]);
+            }
+        })
+          //  console.log("이름:"+objects[i].name+",나이:"+objects[i].age);
+        
+       
+
+
+    </script>
+</body>
+
+</html>

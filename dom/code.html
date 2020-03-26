@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="firstName"id="firstName" value="gildong">
+    <input type="text" name="lastName" id="lastName" value="Hong">
+    <input type="text" name="age" id="age" value="16">
+    <button id="btn" onclick="addTr()">Click</button>
+    <table id="tbl" border="1">
+        <tr>
+            <td>firstName</td>
+            <td>lastName</td>
+            <td>age</td>
+        </tr>
+    
+    </table>
+
+    <script>
+
+     var tbl = document.getElementById("tbl"); //버튼 누르면 테이블 추가 시키기 위해서
+     function addTr(){
+     var fName =  document.getElementById('firstName').value;
+     var lName =  document.getElementById('lastName').value;
+     var age = document.getElementById('age').value;
+     console.log(fName);
+     var $tr, $td, $text;
+     $tr = document.createElement("tr"); // createElement는 "<tr></tr>"" 테그를 만들어서 값을 안에 넣는다
+     
+     $text = document.createTextNode(fName);
+     $td = document.createElement("td"); // createElement는 "<td></td>"" 테그를 만들어서 값을 안에 넣는다
+     $td.appendChild($text); //자식으로 추가할때 appendChid 사용
+     $tr.appendChild($td);
+     
+     $text = document.createTextNode(lName);
+     $td = document.createElement("td");
+     $td.appendChild($text);
+     $tr.appendChild($td);
+
+    $text = document.createTextNode(age);
+    $td = document.createElement("td");
+    $td.appendChild($text);
+    $tr.appendChild($td)
+
+
+     tbl.appendChild($tr);
+
+     document.getElementById('firstName').value =""; //값을 한번 입력하고 다음 입력할수 있게 이전 입력값을 지워준다.
+     document.getElementById('lastName').value ="";
+     document.getElementById('age').value ="";
+     }
+    </script>
+</body>
+</html>

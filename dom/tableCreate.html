@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn" onclick="addT()" > Click </button>
+    <table id="tb" border="1">
+        <tr>
+            <td>NAME</td>
+            <td>PHONE</td>
+            <td>AGE</td>
+        </tr>
+    </table>
+    <script>
+        var datas = [
+            {name:"Hong", phone:"1212-1212", age:20},
+            {name:"Kim", phone:"2323-3434", age:27},
+            {name:"Hwang", phone:"1234-1234", age:25},
+            {name:"Park", phone:"4321-1212", age:23}
+        ]
+        var tbs = document.getElementById('tb');
+        var $tr, $td, $text;
+
+        $tr = document.createElement("tr");
+        $td = document.createElement("td");
+        function addT(){
+            for(d of datas){    //addList.forEach(function(o,i){})
+                $tr = document.createElement("tr");
+                for(f in d){
+                    $td = document.createElement("td");
+                    $text = document.createTextNode(d[f]);
+                    $td.appendChild($text);
+                    $tr.appendChild($td);             
+                }
+                tbs.appendChild($tr);
+            }
+        }
+        
+    </script>
+</body>
+</html>

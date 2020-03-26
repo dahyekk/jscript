@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <input type="text" name="firstName" id="firstName" value="gildong">
+        <input type="text" name="lastName" id="lastName" value="Hong">
+        <input type="text" name="age" id="age" value="16">
+        <button id="btn" onclick="translateBtn()">Click</button>
+
+        <table id="tbl" border="1">
+            <tbody>
+            <tr>
+                <td>FirstName</td>
+                <td>LastName</td>
+                <td>Age</td>
+            </tr>
+            <tr>
+                <td>gildong</td>
+                <td>Hong</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td>ara</td>
+                <td>shin</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>jaeeon</td>
+                <td>Yun</td>
+                <td>38</td>
+            </tr>
+            <tr>
+                <td>jiwon</td>
+                <td>lee</td>
+                <td>19</td>
+            </tr>
+        </tbody>
+        </table>
+        <script>
+            var tds = document.getElementsByTagName("td");
+            console.log(tds);
+            //console.log(tds[3].childNodes[0].nodeValue);
+            //console.log(tds[12].childNodes[1].childNodes[0].nodeValue);
+            var btn = document.getElementById("btn");
+           
+            btn.onmouseover = function(){
+                this.style.backgroundColor="yellow";
+            }
+            btn.onmouseout = function(){
+                this.style.backgroundColor="";
+            }
+            //event=this 는 element
+            function translateBtn(){
+                var $fn = document.getElementById("firstName").value;
+                var $ln = document.getElementById("lastName").value;
+                var $ag = document.getElementById("age").value;
+                //tds[원하는위치].childNodes[0].nodeValue =변경할값.
+                //firstChild.nocdValue, textContent, innerText, outerText, innerHTML 대체 사용가능.
+                tds[3].firstChild.nodeValue = $fn;
+                tds[7].textContent=$ln;
+                tds[11].innerText = $ag;
+
+                var na = document.getElementById("firstName").value;
+                tds[5].style.backgroundColor = "pink";
+                tds[5].style.color = "white";
+                
+            }
+        </script>
+    </body>
+</html>

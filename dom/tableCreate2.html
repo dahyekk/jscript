@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn"> click </button>
+    <table id = "tbl" border="1">
+        <tr>
+            <td>name</td>
+            <td>phone</td>
+            <td>age</td>
+        </tr>
+    </table>
+    <script>
+        var addrList = [
+            {name:"Hong", phone:"1212-1212", age:20},
+            {name:"Kim", phone:"2323-3434", age:27},
+            {name:"Hwang", phone:"1234-1234", age:25},
+            {name:"Park", phone:"4321-1212", age:23}
+        ]
+        var $titles =["name", "phone", "age"];
+        // 중간 누락값 체크, 정확한 위치에 값이 들어갈 수 있게.
+        var btn = document.getElementById("btn");
+        btn.onclick=function(){
+            var tbl = document.getElementById("tbl");
+            var $text, $td, $tr;
+            addrList.forEach(function(o){      //addrList에 대한 반복처리하겠당. o,b,a 순 o = object i = index a=array                               
+                $tr = document.createElement("tr");
+                for(field of $titles){
+                    $td = document.createElement("td");
+                    $text = document.createTextNode(o[field]);
+                    $td.appendChild($text);
+                    $tr.appendChild($td);
+                }                        
+                tbl.appendChild($tr); 
+            });
+        }
+    </script>
+</body>
+</html>

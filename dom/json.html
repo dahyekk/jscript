@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="tb" border="1">
+        <tr>
+            <td>NAME</td>
+            <td>PHONE</td>
+            <td>AGE</td>
+        </tr>
+    </table>
+    <script>
+        var addrList = '[{"name":"Hong","phone":"123-123", "age" : 20},{"name":"Kong","phone":"123-165", "age" : 21},{"name":"kiki","phone":"134-659", "age" : 29} ]';
+        console.log(JSON.stringify(JSON.parse(addrList)));
+    </script>
+</body>
+</html>
